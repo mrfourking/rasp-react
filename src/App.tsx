@@ -4,6 +4,7 @@ import Header from './components/layout/Header'
 import './App.css'
 import { useState } from 'react'
 import StartScreen from './components/layout/Start'
+import Footer from './components/layout/Footer'
 
 function App() {
   const [isStarted, setIsStarted] = useState<boolean>(false)
@@ -16,7 +17,9 @@ function App() {
             <VStack onClick={() => setIsStarted(false)}>
               <Header />
               <Box>тело</Box>
-              <Box>футер</Box>
+              <Box>
+                <Footer />
+              </Box>
             </VStack>
           </Container>
         ) : (
