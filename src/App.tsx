@@ -11,21 +11,17 @@ function App() {
 
   return (
     <ChakraProvider>
-      <>
+      <Container display={'flex'} flexDir={'column'} flexGrow={1} minHeight={'100%'}>
         {isStarted ? (
-          <Container>
-            <VStack onClick={() => setIsStarted(false)}>
-              <Header />
-              <Box>тело</Box>
-              <Box>
-                <Footer />
-              </Box>
-            </VStack>
-          </Container>
+          <VStack flexGrow={1} onClick={() => setIsStarted(false)}>
+            <Header />
+            <Box flexGrow={1}>тело</Box>
+            <Footer />
+          </VStack>
         ) : (
           <StartScreen onClick={() => setIsStarted(true)} />
         )}
-      </>
+      </Container>
     </ChakraProvider>
   )
 }
