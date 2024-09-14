@@ -1,1 +1,1 @@
-export const DEFAULT_BOX_HEIGHT = 32
+export const DEFAULT_BOX_HEIGHT = 8
