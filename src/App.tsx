@@ -6,6 +6,7 @@ import Header from './components/layout/Header'
 import StartScreen from './components/layout/Start'
 import Footer from './components/layout/Footer'
 import Calendar from './components/Calendar'
+import Filters from './components/Filters'
 
 import './App.css'
 
@@ -19,6 +20,7 @@ function App() {
           <VStack flexGrow={1}>
             <Header />
             <Box width={'100%'} flexGrow={1}>
+              <Filters />
               <Calendar startDate={DateTime.now()} />
             </Box>
             <Footer />

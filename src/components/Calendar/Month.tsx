@@ -1,11 +1,11 @@
 import { Box, SimpleGrid } from '@chakra-ui/react'
-import { useMemo } from 'react'
+import { FC, useMemo } from 'react'
 
 import DayCell from './DayCell'
 
 import { IMonthProps } from '../../types'
 
-const Month = ({ date }: IMonthProps): JSX.Element => {
+const Month: FC<IMonthProps> = ({ date, datesArray }) => {
   const generatedDays = useMemo(() => {
     const days = []
     let currentDate = date.startOf('month')
@@ -14,17 +14,24 @@ const Month = ({ date }: IMonthProps): JSX.Element => {
     const endWeekDay = endDate.weekday
 
     for (let i = 0; i < startWeekday - 1; i++) {
-      days.push(<Box border="1px" height="50px" marginRight="-1px" marginBottom="-1px"></Box>)
+      days.push(<DayCell key={`${currentDate.toFormat('LL')}-start-${i}`} />)
     }
 
     while (currentDate < endDate) {
-      days.push(<DayCell>{currentDate.toFormat('dd')}</DayCell>)
+      days.push(
+        <DayCell
+          key={currentDate.toFormat('dd.MM.yyyy')}
+          selected={datesArray.includes(currentDate.toFormat('dd.MM.yyyy'))}
+        >
+          {currentDate.toFormat('dd')}
+        </DayCell>
+      )
 
       currentDate = currentDate.plus({ day: 1 })
     }
 
     for (let i = endWeekDay; i < 7; i++) {
-      days.push(<Box border="1px" height="50px" marginRight="-1px" marginBottom="-1px"></Box>)
+      days.push(<DayCell key={`${currentDate.toFormat('LL')}-end-${i}`} />)
     }
 
     return days

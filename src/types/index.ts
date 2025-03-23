@@ -1,18 +1,20 @@
-import { DateTime } from "luxon"
+import { DateTime } from 'luxon'
 
 export interface IStartScreenProps {
   onClick: () => void
 }
 
 export interface ICalendarProps {
-    startDate: DateTime
+  startDate: DateTime
 }
 
 export interface IMonthProps {
-    date: DateTime
+  date: DateTime
+  datesArray: string[]
 }
 
 export interface IDayCellProps {
   height?: string
-  children: React.ReactNode | string
+  children?: React.ReactNode | string
+  selected?:boolean
 }
