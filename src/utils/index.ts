@@ -1,4 +1,4 @@
-import { DateTime } from 'luxon'
+import { DateTime } from "luxon"
 
 /**
  * Generates dates array from start to end date with steps,
@@ -13,15 +13,15 @@ type GetDatesArrayType = (
   start: DateTime,
   end: DateTime,
   includeStep?: number,
-  excludeStep?: number
+  excludeStep?: number,
 ) => string[]
 
-const getDatesArray: GetDatesArrayType = (start, end, includeStep= 2, excludeStep= 2) => {
+const getDatesArray: GetDatesArrayType = (start, end, includeStep = 2, excludeStep = 2) => {
   const arr: string[] = []
   let currentIncludeStep = 0
-  while(start <= end) {
+  while (start <= end) {
     if (currentIncludeStep < includeStep) {
-      arr.push(start.toFormat('dd.MM.yyyy') as string)
+      arr.push(start.toFormat("dd.MM.yyyy") as string)
       currentIncludeStep++
       start = start.plus({ day: 1 })
     } else {
@@ -32,7 +32,4 @@ const getDatesArray: GetDatesArrayType = (start, end, includeStep= 2, excludeSte
   return arr
 }
 
-
-export {
-  getDatesArray
-}
+export { getDatesArray }

@@ -1,9 +1,15 @@
-import { Box, Button, Heading, Text } from '@chakra-ui/react'
-import { IStartScreenProps } from '../../../types'
+import { Box, Button, Heading, Text } from "@chakra-ui/react"
+import { IStartScreenProps } from "@src/types"
 
 const StartScreen = ({ onClick }: IStartScreenProps): JSX.Element => {
   return (
-    <Box display={'flex'} flexDir={'column'} flexGrow={1} justifyContent={'center'} alignItems={'center'}>
+    <Box
+      display={"flex"}
+      flexDir={"column"}
+      flexGrow={1}
+      justifyContent={"center"}
+      alignItems={"center"}
+    >
       <Heading>Генератор смен</Heading>
       <Text> Постройте планы на год за пару кликов!</Text>
       <Button onClick={onClick}>Начать</Button>
