@@ -1,10 +1,28 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "composite": true,
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "types": ["node", "vite/client"],
+    "paths": {
+      "@root/*": ["*"],
+      "@src/*": ["src/*"],
+      "@assets": ["src/assets"],
+      "@assets/*": ["src/assets/*"],
+      "@components": ["src/components"],
+      "@components/*": ["src/components/*"],
+      "@constants": ["src/constants"],
+      "@constants/*": ["src/constants/*"],
+      "@pages": ["src/pages"],
+      "@pages/*": ["src/pages/*"],
+      "@utils": ["src/utils"],
+      "@utils/*": ["src/utils/*"]
+    },
+    "esModuleInterop": true,
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -15,10 +33,14 @@
     "jsx": "react-jsx",
 
     /* Linting */
-    "strict": true,
+    "strict": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "declarationMap": true,
+    "resolveJsonModule": true
   },
-  "include": ["src"]
+  "include": ["src/**/*", "package.json"],
+  "exclude": ["node_modules", "dist"]
 }
